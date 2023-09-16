@@ -1,10 +1,8 @@
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Itim&family=Inter&family=Jost&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 
     * {
-        /* font-family: 'Itim', cursive; */
-        /* font-family: 'Jost', sans-serif; */
-        font-family: 'Inter', sans-serif;
+        font-family: 'Jost', sans-serif;
     }
 
     body {
@@ -13,16 +11,18 @@
     }
 
     .binary-clock {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+        padding: 1rem 2rem 0;
+        border-radius: 2rem;
+        width: min-content;
+        height: min-content;
     }
 
     .binary-clock h1 {
+        font-size: 5rem;
         padding-bottom: 1rem;
+        animation: swipeDown 1s cubic-bezier(0, 0, 0.51, 1);
     }
 
     .binary-grid {
@@ -31,15 +31,15 @@
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         grid-template-rows: repeat(4, 1fr);
-        padding-right: 5rem;
+        padding-right: 3rem;
     }
 
     .clock {
         grid-column: 2/8;
         grid-row: 2/5;
         display: grid;
-        width: 20rem;
-        height: 10rem;
+        width: 25rem;
+        height: 12.5rem;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(3, 1fr);
         gap: 5px;
@@ -57,39 +57,33 @@
         background-color: black;
     }
 
-    .binary-unit {
-        display: flex;
-        justify-content: center;
-        align-self: end;
-        padding-bottom: 1rem;
-    }
+    @keyframes swipeDown {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
 
-    .time-unit {
-        display: flex;
-        justify-content: end;
-        align-self: center;
-        padding-right: 1rem;
-    }
-
-    .time {
-        padding-top: 2rem;
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 </style>
 
-<section class="binary-clock">
+<section class="binary-clock d-flex flex-column align-items-center justify-content-center">
     <h1>Binary Clock</h1>
     <div class="binary-grid">
         <span></span>
-        <span class="binary-unit">32</span>
-        <span class="binary-unit">16</span>
-        <span class="binary-unit">8</span>
-        <span class="binary-unit">4</span>
-        <span class="binary-unit">2</span>
-        <span class="binary-unit">1</span>
+        <span class="binary-unit d-flex align-self-end justify-content-center pb-3">32</span>
+        <span class="binary-unit d-flex align-self-end justify-content-center pb-3">16</span>
+        <span class="binary-unit d-flex align-self-end justify-content-center pb-3">8</span>
+        <span class="binary-unit d-flex align-self-end justify-content-center pb-3">4</span>
+        <span class="binary-unit d-flex align-self-end justify-content-center pb-3">2</span>
+        <span class="binary-unit d-flex align-self-end justify-content-center pb-3">1</span>
         <div class="clock"></div>
-        <span class="time-unit">Hours</span>
-        <span class="time-unit">Minutes</span>
-        <span class="time-unit">Seconds</span>
+        <span class="time-unit d-flex align-self-center justify-content-end pe-3">Hours</span>
+        <span class="time-unit d-flex align-self-center justify-content-end pe-3">Minutes</span>
+        <span class="time-unit d-flex align-self-center justify-content-end pe-3">Seconds</span>
     </div>
     
     <?php include('components/time.php'); ?>
@@ -159,8 +153,6 @@ async function clockLoop() {
         const binaryMinutes = convertToBinary(time[1]);
         const binarySeconds = convertToBinary(time[2]);
         const binaryTime = [binaryHours, binaryMinutes, binarySeconds];
-
-        // timeElement.innerHTML = `${time[0]}:${time[1]}:${time[2]}`;
     
         updateClock(binaryTime);
     

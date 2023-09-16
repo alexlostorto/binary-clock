@@ -58,4 +58,4 @@
 
         <title><?= $site_title ?></title>
     </head>
-    <body>
+    <body class="d-flex flex-column align-items-center justify-content-center">

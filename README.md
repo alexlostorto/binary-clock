@@ -4,7 +4,7 @@
   <b>Clocks displayed in binary format.</b>
 </p>
 
-<!-- <p align="center"><img width="100%" src=".github/desktop.png" alt="desktop version of the links page" /></p> -->
+<p align="center"><img width="100%" src=".github/desktop.png" alt="desktop version of the binary clock" /></p>
 
 ## ✨ Features
 

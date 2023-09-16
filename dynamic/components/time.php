@@ -2,9 +2,10 @@
 
 <style>
     .flip-clock {
+        display: flex;
         text-align: center;
         perspective: 400px;
-        margin: 20px auto;
+        margin: 3rem auto;
     }
 
     .flip-clock *, 
@@ -25,10 +26,12 @@
     }
 
     .card {
+        border: none;
+        background-color: transparent;
         display: block;
         position: relative;
         padding-bottom: 0.72em;
-        font-size: 9vw;
+        font-size: 5rem;
         line-height: 0.95;
     }
 
@@ -129,12 +132,11 @@
 
 <script>
 
-function CountdownTracker(label, value){
+function CountdownTracker(value) {
     var el = document.createElement('span');
 
     el.className = 'flip-clock__piece';
-    el.innerHTML = '<b class="flip-clock__card card"><b class="card__top"></b><b class="card__bottom"></b><b class="card__back"><b class="card__bottom"></b></b></b>' + 
-        '<span class="flip-clock__slot">' + label + '</span>';
+    el.innerHTML = '<b class="flip-clock__card card"><b class="card__top"></b><b class="card__bottom"></b><b class="card__back"><b class="card__bottom"></b></b></b>';
 
     this.el = el;
 
@@ -143,21 +145,22 @@ function CountdownTracker(label, value){
         back = el.querySelector('.card__back'),
         backBottom = el.querySelector('.card__back .card__bottom');
 
-    this.update = function(val){
+    this.update = function(val) {
         val = ( '0' + val ).slice(-2);
-        if ( val !== this.currentValue ) {
-        
-        if ( this.currentValue >= 0 ) {
-            back.setAttribute('data-value', this.currentValue);
-            bottom.setAttribute('data-value', this.currentValue);
-        }
-        this.currentValue = val;
-        top.innerText = this.currentValue;
-        backBottom.setAttribute('data-value', this.currentValue);
 
-        this.el.classList.remove('flip');
-        void this.el.offsetWidth;
-        this.el.classList.add('flip');
+        if ( val !== this.currentValue ) {
+            if ( this.currentValue >= 0 ) {
+                back.setAttribute('data-value', this.currentValue);
+                bottom.setAttribute('data-value', this.currentValue);
+            }
+            
+            this.currentValue = val;
+            top.innerText = this.currentValue;
+            backBottom.setAttribute('data-value', this.currentValue);
+
+            this.el.classList.remove('flip');
+            void this.el.offsetWidth;
+            this.el.classList.add('flip');
         }
     }
     
@@ -202,7 +205,7 @@ function Clock(countdown, callback) {
 
     for ( key in t ){
         if ( key === 'Total' ) { continue; }
-        trackers[key] = new CountdownTracker(key, t[key]);
+        trackers[key] = new CountdownTracker(t[key]);
         this.el.appendChild(trackers[key].el);
     }
 
@@ -228,12 +231,10 @@ function Clock(countdown, callback) {
         }
     }
 
-    setTimeout(updateClock,500);
+    setTimeout(updateClock, 500);
 }
 
 const clock = new Clock();
 document.querySelector('.binary-clock').appendChild(clock.el);
-const clock1 = new Clock();
-document.body.appendChild(clock1.el);
 
 </script>
