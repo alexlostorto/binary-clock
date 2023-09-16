@@ -10,6 +10,7 @@
     .flip-clock *, 
     .flip-clock *:before, 
     .flip-clock *:after {
+        overflow: hidden;
         font-family: var(--bs-font-sans-serif);
         box-sizing: border-box;
     }
@@ -126,8 +127,6 @@
     }
 </style>
 
-<h2 class="time"></h2>
-
 <script>
 
 function CountdownTracker(label, value){
@@ -233,6 +232,8 @@ function Clock(countdown, callback) {
 }
 
 const clock = new Clock();
-document.body.appendChild(clock.el);
+document.querySelector('.binary-clock').appendChild(clock.el);
+const clock1 = new Clock();
+document.body.appendChild(clock1.el);
 
 </script>

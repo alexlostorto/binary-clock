@@ -99,7 +99,6 @@
 <script>
     
 const clockElement = document.querySelector(".clock");
-const timeElement = document.querySelector(".time");
 
 const sleep = ms => {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -161,7 +160,7 @@ async function clockLoop() {
         const binarySeconds = convertToBinary(time[2]);
         const binaryTime = [binaryHours, binaryMinutes, binarySeconds];
 
-        timeElement.innerHTML = `${time[0]}:${time[1]}:${time[2]}`;
+        // timeElement.innerHTML = `${time[0]}:${time[1]}:${time[2]}`;
     
         updateClock(binaryTime);
     
