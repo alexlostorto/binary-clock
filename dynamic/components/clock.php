@@ -13,7 +13,7 @@
     .binary-clock {
         backdrop-filter: blur(10px);
         box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
-        padding: 1rem 2rem 0;
+        padding: 1.5rem 2rem 0;
         border-radius: 2rem;
         width: min-content;
         height: min-content;
@@ -23,6 +23,10 @@
         font-size: 5rem;
         padding-bottom: 1rem;
         animation: swipeDown 1s cubic-bezier(0, 0, 0.51, 1);
+    }
+
+    .binary-clock span {
+        font-size: 1.2rem;
     }
 
     .binary-grid {
