@@ -9,10 +9,12 @@
 ## ✨ Features
 
 - Binary clock created using html, css and vanilla javascript.
+- Uses bootstrap
+- Includes flip clock by [Shaw](https://codepen.io/shshaw)
 
 ## 📋 To-do List
 
-- Use bootstrap
+- Make responsive
 
 ## 📜 Credits
 
