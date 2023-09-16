@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Inter&family=Jost&display=swap');
+
+* {
+    /* font-family: 'Itim', cursive; */
+    /* font-family: 'Jost', sans-serif; */
+    font-family: 'Inter', sans-serif;
+}
+
+.binary-clock {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.binary-clock h1 {
+    padding-bottom: 1rem;
+}
+
+.binary-grid {
+    width: min-content;
+    height: min-content;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    padding-right: 5rem;
+}
+
+.clock {
+    grid-column: 2/8;
+    grid-row: 2/5;
+    display: grid;
+    width: 20rem;
+    height: 10rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.clock div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.clock div.coloured {
+    background-color: black;
+}
+
+.binary-unit {
+    display: flex;
+    justify-content: center;
+    align-self: end;
+    padding-bottom: 1rem;
+}
+
+.time-unit {
+    display: flex;
+    justify-content: end;
+    align-self: center;
+    padding-right: 1rem;
+}
+
+.time {
+    padding-top: 2rem;
+}
