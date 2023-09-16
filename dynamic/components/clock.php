@@ -22,7 +22,7 @@
     .binary-clock h1 {
         font-size: 5rem;
         padding-bottom: 1rem;
-        animation: swipeDown 1s cubic-bezier(0, 0, 0.51, 1);
+        animation: swipeDown 0.7s cubic-bezier(0, 0, 0.51, 1);
     }
 
     .binary-clock span {
@@ -63,7 +63,7 @@
 
     @keyframes swipeDown {
         0% {
-            transform: translateY(-100%);
+            transform: translateY(-30%);
             opacity: 0;
         }
 
